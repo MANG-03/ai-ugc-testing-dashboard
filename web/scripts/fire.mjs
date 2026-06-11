@@ -1,0 +1,11 @@
+import { ConvexHttpClient } from "convex/browser";
+import { readFileSync } from "node:fs";
+import { api } from "../convex/_generated/api.js";
+const c = new ConvexHttpClient(process.env.CONVEX_URL);
+const SRC = process.env.SOURCE_ID, AVATAR = process.env.AVATAR, PROMPT = process.env.PROMPT;
+const aurl = await c.mutation(api.sourceVideos.generateUploadUrl, {});
+const ares = await fetch(aurl, { method: "POST", headers: { "Content-Type": "image/png" }, body: readFileSync(AVATAR) });
+const { storageId: avatarId } = await ares.json();
+const plan = await c.action(api.gemini.plan, { sourceVideoId: SRC, pipeline: "A", userPrompt: PROMPT, modelIds: ["seedance-2.0-reference-to-video"], avatarStorageIds: [avatarId] });
+const r = await c.action(api.generate.runPlan, { planId: plan.planId });
+console.log("PLAN_ID=" + plan.planId, "fired:", JSON.stringify(r), new Date().toISOString().slice(11,19));

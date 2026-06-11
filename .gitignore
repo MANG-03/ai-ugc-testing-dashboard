@@ -1,0 +1,16 @@
+# OS / editor
+.DS_Store
+*.log
+
+# secrets — never commit (nested .gitignores also cover these)
+.env
+.env.*
+**/.env
+**/.env.*
+
+# dependencies / build (also covered by web/.gitignore)
+node_modules/
+**/node_modules/
+.next/
+out/
+*.tsbuildinfo

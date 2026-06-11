@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand — violet/indigo accent (matches the Echos reference) */
+  --color-brand-50: #f2f0ff;
+  --color-brand-100: #e7e3ff;
+  --color-brand-200: #d2caff;
+  --color-brand-300: #b4a6fc;
+  --color-brand-400: #9277f8;
+  --color-brand-500: #7c5cfc;
+  --color-brand-600: #6b46ef;
+  --color-brand-700: #5a34d6;
+  --color-brand-800: #4a2bad;
+  --color-brand-900: #3d2789;
+
+  /* Canvas + surfaces */
+  --color-canvas: #f6f6fb;
+  --color-surface: #ffffff;
+
+  /* Ink — higher-contrast neutrals than default greys */
+  --color-ink-900: #15151f;
+  --color-ink-700: #3a3a4a;
+  --color-ink-500: #6b6b7d;
+  --color-ink-400: #8a8a9a;
+  --color-line: #ececf3;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  background: var(--color-canvas);
+}
+
+body {
+  color: var(--color-ink-900);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Subtle, consistent focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 1px;
+}
+
+/* Thin, unobtrusive scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #d7d7e2 transparent;
+}

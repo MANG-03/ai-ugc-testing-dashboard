@@ -1,0 +1,13 @@
+{
+  "name": "echoes-probes",
+  "private": true,
+  "type": "module",
+  "description": "Phase 0 throwaway probes — verify the unknowns behind real API calls before building Echoes.",
+  "scripts": {
+    "probe:tbm": "node --env-file=.env.local 01-twelvelabs-tbm.mjs",
+    "probe:gemini": "node --env-file=.env.local 02-gemini-video.mjs",
+    "probe:seedance": "node --env-file=.env.local 03-seedance-v2v.mjs",
+    "probe:kling": "node --env-file=.env.local 04-kling-o3-edit.mjs",
+    "probe:remux": "node --env-file=.env.local 05-ffmpeg-remux.mjs"
+  }
+}
