@@ -14,3 +14,17 @@ node_modules/
 .next/
 out/
 *.tsbuildinfo
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# large test media, experiments & model caches
+# (the curated translation/samples/ clips are committed explicitly via the negation below)
+tests/
+*.mp4
+Untitled
+!translation/samples/*.mp4
